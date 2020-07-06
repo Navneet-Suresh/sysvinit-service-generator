@@ -70,7 +70,7 @@ This script should work fine on Debian, CentOS and Slackware.
 Yep, I'm lazy too. But still, I've written a script to automate this :)
 
 ```sh
-$ wget 'https://raw.githubusercontent.com/jasonblewis/sample-service-script/master/new-service.sh' && bash new-service.sh
+$ wget 'https://raw.githubusercontent.com/Navneet-Suresh/sysvinit-service-generator/master/new-service.sh' && bash new-service.sh
 ```
 
 In this script I will download `service.sh` into a `tempfile`, replace some tokens, and then show you commands you should run as superuser.
@@ -78,7 +78,7 @@ In this script I will download `service.sh` into a `tempfile`, replace some toke
 If you feel confident enough with my script, you can `sudo` the script directly:
 
 ```sh
-$ wget 'https://raw.githubusercontent.com/jasonblewis/sample-service-script/master/new-service.sh' && sudo bash new-service.sh
+$ wget 'https://raw.githubusercontent.com/Navneet-Suresh/sysvinit-service-generator/master/new-service.sh' && sudo bash new-service.sh
 ```
 
 Note: the cool hipsterish `curl $URL | bash` won't work here, I don't really want to check why.
