@@ -1,19 +1,19 @@
 #!/bin/bash
 
-SERVICE_FILE=$(tempfile)
+SERVICE_FILE=$(mktemp)
 
 if [ ! -e service.sh ]; then
-  echo "--- Download template ---"
-  echo "I'll now download the service.sh, because is is not downloaded."
+  echo "--- Get service template ---"
+  echo "Service file missing, I will download the service.sh file now"
   echo "..."
   wget -q https://raw.githubusercontent.com/wyhasany/sample-service-script/master/service.sh
   if [ "$?" != 0 ]; then
     echo "I could not download the template!"
-    echo "You should now download the service.sh file manualy. Run therefore:"
+    echo "You should now download the service.sh file manualy from here:"
     echo "wget https://raw.githubusercontent.com/wyhasany/sample-service-script/master/service.sh"
     exit 1
   else
-    echo "I donloaded the tmplate sucessfully"
+    echo "I downloaded the template successfully"
     echo ""
   fi
 fi
@@ -54,6 +54,8 @@ prompt_token 'NAME'        'Service name' $1
 if [ -f "/etc/init.d/$NAME" ]; then
   echo "Error: service '$NAME' already exists"
   exit 1
+else 
+echo "Service file created"
 fi
 
 prompt_token 'DESCRIPTION' ' Description' $2
